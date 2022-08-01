@@ -6,6 +6,7 @@ import java.util.Collections;
 public class Board {
 
     Tile[][] board;
+
     public Board(int boardSize, int howManyMinesToPlace) {
         this.board = new Tile[boardSize][boardSize];
 
@@ -14,7 +15,7 @@ public class Board {
 
         int countOfMines = 0;
         for (int i = 0; i < totalBoardSize; i++) {
-            if(i < howManyMinesToPlace) {
+            if (countOfMines < howManyMinesToPlace) {
                 boardTokens.add(new Mine());
                 countOfMines++;
             } else {
@@ -24,9 +25,13 @@ public class Board {
 
         Collections.shuffle(boardTokens);
 
+        for (int i = 0; i < boardTokens.size(); i++) {
+
+        }
+
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
-                this.board[i][j] = boardTokens.get(i+j);
+                this.board[i][j] = boardTokens.get((j * boardSize) + i);
             }
         }
     }
