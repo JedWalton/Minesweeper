@@ -25,10 +25,6 @@ public class Board {
 
         Collections.shuffle(boardTokens);
 
-        for (int i = 0; i < boardTokens.size(); i++) {
-
-        }
-
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
                 this.board[i][j] = boardTokens.get((j * boardSize) + i);
