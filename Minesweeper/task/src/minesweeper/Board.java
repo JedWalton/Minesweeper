@@ -6,9 +6,13 @@ import java.util.Collections;
 public class Board {
 
     Tile[][] board;
+    int boardSize;
+    int howManyMinesOnBoard;
 
     public Board(int boardSize, int howManyMinesToPlace) {
         this.board = new Tile[boardSize][boardSize];
+        this.boardSize = boardSize;
+        this.howManyMinesOnBoard = howManyMinesToPlace;
 
         ArrayList<Tile> boardTokens = new ArrayList<>();
         int totalBoardSize = boardSize * boardSize;
@@ -35,19 +39,27 @@ public class Board {
     }
 
     public void displayBoard() {
+        System.out.println();
+        System.out.println(" │123456789│\n—│—————————│");
         for (int i = 0; i < board.length; i++) {
+            System.out.print(i + 1 + "|");
             for (int j = 0; j < board[0].length; j++) {
-                System.out.print(board[i][j].StringRepresentation);
+                if (!this.board[i][j].StringRepresentation.equals("X")) {
+                    System.out.print(this.board[i][j].StringRepresentation);
+                } else {
+                    System.out.print(".");
+                }
             }
-            System.out.println();
+            System.out.println("|");
         }
+        System.out.println("—│—————————│");
     }
 
     public void calculateHowManyMinesThereAreAroundEachEmptyCellAndUpdateBoard() {
         for (int i = 0; i < this.board.length; i++) {
             for (int j = 0; j < this.board.length; j++) {
                 int minesSurrounding = checkMineAround(i, j);
-                if(minesSurrounding != -1 && minesSurrounding != 0){
+                if (minesSurrounding != -1 && minesSurrounding != 0) {
                     this.board[i][j].StringRepresentation = Integer.toString(minesSurrounding);
                 }
             }
@@ -86,5 +98,26 @@ public class Board {
             }
         }
         return result;
+    }
+
+    public boolean isGameOver() {
+        /* if all cells are marked correctly */
+        int minesCorrectlyMarked = 0;
+        int minesIncorrectlyMarked = 0;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                if (this.board[i][j].getClass() == MarkedMine.class) {
+                    minesCorrectlyMarked++;
+                } else if (this.board[i][j].getClass() == MarkedSafeCell.class) {
+                    minesIncorrectlyMarked++;
+                }
+            }
+        }
+        if(minesCorrectlyMarked == this.howManyMinesOnBoard) {
+            if(minesIncorrectlyMarked == 0) {
+                return true;
+            }
+        }
+        return false;
     }
 }
