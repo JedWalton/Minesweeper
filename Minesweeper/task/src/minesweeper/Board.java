@@ -18,37 +18,15 @@ public class Board {
         this.numberOfFreeTurns = 0;
         this.gameOver = false;
 
-        ArrayList<Tile> boardTokens = new ArrayList<>();
-        int totalBoardSize = boardSize * boardSize;
+        initTiles(howManyMinesToPlace);
 
-        int countOfMines = 0;
-        for (int i = 0; i < totalBoardSize; i++) {
-            if (countOfMines < howManyMinesToPlace) {
-                boardTokens.add(new Mine());
-                countOfMines++;
-            } else {
-                boardTokens.add(new SafeCell());
-            }
-        }
-
-        Collections.shuffle(boardTokens);
-
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {
-                this.board[i][j] = boardTokens.get((j * boardSize) + i);
-            }
-        }
     }
 
-    public void reinitBoard(int boardSize, int howManyMinesToPlace) {
-        this.board = new Tile[boardSize][boardSize];
-        this.boardSize = boardSize;
+    public void initTiles(int howManyMinesToPlace) {
         this.howManyMinesOnBoard = howManyMinesToPlace;
-        this.numberOfFreeTurns = 0;
-        this.gameOver = false;
 
         ArrayList<Tile> boardTokens = new ArrayList<>();
-        int totalBoardSize = boardSize * boardSize;
+        int totalBoardSize = this.boardSize * this.boardSize;
 
         int countOfMines = 0;
         for (int i = 0; i < totalBoardSize; i++) {
