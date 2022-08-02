@@ -75,8 +75,8 @@ public class Board {
         for (int i = 0; i < board.length; i++) {
             System.out.print(i + 1 + "|");
             for (int j = 0; j < board[0].length; j++) {
-                if(this.gameOver) {
-                    if(this.board[i][j].getClass() == MarkedMine.class || this.board[i][j].getClass() == Mine.class){
+                if (this.gameOver) {
+                    if (this.board[i][j].getClass() == MarkedMine.class || this.board[i][j].getClass() == Mine.class) {
                         System.out.print("X");
                     } else {
                         System.out.print(this.board[i][j].StringRepresentation);
@@ -98,15 +98,8 @@ public class Board {
         int numberOfMinesAround = calculateNumberOfMinesSurroundingTile(X, Y);
 
         if (doesCellContainMine(X, Y)) {
-            if(numberOfFreeTurns > 0) {
-                System.out.println("You stepped on a mine and failed!");
-                this.gameOver = true;
-            } else if (numberOfFreeTurns == 0) {
-                /* reinitialize board until this is legal move */
-                while (doesCellContainMine(X, Y)) {
-                    reinitBoard(this.boardSize, this.howManyMinesOnBoard);
-                }
-            }
+            System.out.println("You stepped on a mine and failed!");
+            this.gameOver = true;
         } else if (numberOfMinesAround > 0) {
             /* do not explore all surrounding tiles automatically */
             this.board[X][Y].StringRepresentation = Integer.toString(numberOfMinesAround);

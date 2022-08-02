@@ -45,10 +45,6 @@ public class Main {
 
     private static Board freeAction(Board board, int X, int Y) {
         board.exploreCell(X, Y);
-        if (board.numberOfFreeTurns == 0) {
-            board.exploreCell(X, Y);
-        }
-        board.numberOfFreeTurns++;
         return board;
     }
 }

@@ -784,16 +784,18 @@ feedback_link: https://hyperskill.org/learn/step/7204#comment
 status: Failed
 feedback:
   message: |-
-    Wrong answer in test #88
+    Wrong answer in test #37
 
-    There is a number 2 in the last grid, but there are fewer free fields around which to put a mine. This situation is impossible.
+    There is a number 1 in the last grid, but there are fewer free fields around which to put a mine. This situation is impossible.
 
     Please find below the output of your program during this failed test.
     Note that the &#39;&gt;&#39; character indicates the beginning of the input line.
 
     ---
 
-    [last 250 lines of output are shown, 3 skipped]
+    How many mines do you want on the field?&gt; 2
+
+     │123456789│
     —│—————————│
     1|.........|
     2|.........|
@@ -805,7 +807,7 @@ feedback:
     8|.........|
     9|.........|
     —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 6 8 free
+    Set/unset mine marks or claim a cell as free:&gt; 2 9 mine
 
      │123456789│
     —│—————————│
@@ -816,233 +818,23 @@ feedback:
     5|.........|
     6|.........|
     7|.........|
-    8|.....1...|
-    9|.........|
+    8|.........|
+    9|.*.......|
     —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 3 9 free
+    Set/unset mine marks or claim a cell as free:&gt; 7 4 free
 
      │123456789│
     —│—————————│
-    1|.........|
-    2|.........|
-    3|.........|
-    4|.........|
-    5|.........|
-    6|.........|
-    7|.........|
-    8|.....1...|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 7 2 free
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|......1..|
-    3|.........|
-    4|.........|
-    5|.........|
-    6|.........|
-    7|.........|
-    8|.....1...|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 3 5 free
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|......1..|
-    3|.........|
-    4|.........|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....1...|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 3 6 mine
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|......1..|
-    3|.........|
-    4|.........|
-    5|..1......|
-    6|..*......|
-    7|.........|
-    8|.....1...|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 3 2 free
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|..1...1..|
-    3|.........|
-    4|.........|
-    5|..1......|
-    6|..*......|
-    7|.........|
-    8|.....1...|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 3 6 mine
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|..1...1..|
-    3|.........|
-    4|.........|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....1...|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 7 8 free
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|..1...1..|
-    3|.........|
-    4|.........|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....11..|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 8 3 mine
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|..1...1..|
-    3|.......*.|
-    4|.........|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....11..|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 8 2 mine
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|..1...1*.|
-    3|.......*.|
-    4|.........|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....11..|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 8 2 mine
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|..1...1..|
-    3|.......*.|
-    4|.........|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....11..|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 2 3 mine
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|..1...1..|
-    3|.*.....*.|
-    4|.........|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....11..|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 2 3 mine
-
-     │123456789│
-    —│—————————│
-    1|.........|
-    2|..1...1..|
-    3|.......*.|
-    4|.........|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....11..|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 1 1 mine
-
-     │123456789│
-    —│—————————│
-    1|*........|
-    2|..1...1..|
-    3|.......*.|
-    4|.........|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....11..|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 5 3 mine
-
-     │123456789│
-    —│—————————│
-    1|*........|
-    2|..1...1..|
-    3|....*..*.|
-    4|.........|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....11..|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 2 4 free
-
-     │123456789│
-    —│—————————│
-    1|*........|
-    2|..1...1..|
-    3|....*..*.|
-    4|.1.......|
-    5|..1......|
-    6|.........|
-    7|.........|
-    8|.....11..|
-    9|..1......|
-    —│—————————│
-    Set/unset mine marks or claim a cell as free:&gt; 6 6 free
-
-     │123456789│
-    —│—————————│
-    1|111.1////|
-    2|.112321//|
-    3|12122.1//|
-    4|/1.222211|
-    5|/111//1.1|
-    6|//////111|
-    7|//111////|
-    8|//1.1111/|
-    9|//1111.1/|
+    1|///////11|
+    2|///////1.|
+    3|///////11|
+    4|/////////|
+    5|/////////|
+    6|/////////|
+    7|/////////|
+    8|111//////|
+    9|111//////|
     —│—————————│
     Set/unset mine marks or claim a cell as free:
-  time: Tue, 02 Aug 2022 13:43:08 UTC
+  time: Tue, 02 Aug 2022 14:01:02 UTC
 record: -1
