@@ -17,7 +17,6 @@ public class Main {
             } else if (action.equals("free")) {
                 board = freeAction(board, X, Y);
             }
-            board.numberOfFreeTurns++;
 
             board.displayBoard();
 
@@ -45,6 +44,7 @@ public class Main {
 
     private static Board freeAction(Board board, int X, int Y) {
         board.exploreCell(X, Y);
+        board.numberOfFreeTurns++;
         return board;
     }
 }

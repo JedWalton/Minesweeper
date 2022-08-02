@@ -2,6 +2,7 @@ package minesweeper;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class Board {
 
@@ -76,12 +77,32 @@ public class Board {
         int numberOfMinesAround = calculateNumberOfMinesSurroundingTile(X, Y);
 
         if (doesCellContainMine(X, Y)) {
-            System.out.println("You stepped on a mine and failed!");
-            this.gameOver = true;
-        } else if (numberOfMinesAround > 0) {
+            if (this.numberOfFreeTurns > 0) {
+                System.out.println("You stepped on a mine and failed!");
+                this.gameOver = true;
+            }
+            if (this.numberOfFreeTurns == 0) {
+                System.out.println("TRIGGERRED");
+                /* generate a new mine somewhere */
+                this.board[X][Y] = new SafeCell();
+                /* relocate mine here */
+                Random random = new Random();
+                int newX = random.nextInt(0, 9);
+                int newY = random.nextInt(0, 9);
+
+                while (!this.board[newX][newY].StringRepresentation.equals(".") && calculateNumberOfMinesSurroundingTile(newX, newY) != 0) {
+                    newX = random.nextInt(0, 9);
+                    newY = random.nextInt(0, 9);
+                }
+                this.board[newX][newY] = new Mine();
+            }
+            numberOfMinesAround = calculateNumberOfMinesSurroundingTile(X, Y);
+        }
+        if (numberOfMinesAround > 0) {
             /* do not explore all surrounding tiles automatically */
             this.board[X][Y].StringRepresentation = Integer.toString(numberOfMinesAround);
-        } else if (numberOfMinesAround == 0) {
+        }
+        if (numberOfMinesAround == 0) {
             /* explore all surrounding tiles automatically */
             this.board[X][Y] = new ExploredSafeCell();
             //exploreSurroundingTiles(X, Y);
@@ -128,7 +149,7 @@ public class Board {
     public int calculateNumberOfMinesSurroundingTile(int X, int Y) {
         int result = 0;
 
-        if (this.board[X][Y].getClass() == Mine.class) {
+        if (this.board[X][Y].getClass() == Mine.class /*|| this.board[X][Y].getClass() == MarkedMine.class*/) {
             return -1;
         }
 
