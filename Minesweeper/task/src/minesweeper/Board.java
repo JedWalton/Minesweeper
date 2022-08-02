@@ -82,7 +82,6 @@ public class Board {
                 this.gameOver = true;
             }
             if (this.numberOfFreeTurns == 0) {
-                System.out.println("TRIGGERRED");
                 /* generate a new mine somewhere */
                 this.board[X][Y] = new SafeCell();
                 /* relocate mine here */

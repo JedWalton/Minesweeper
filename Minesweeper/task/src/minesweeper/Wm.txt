@@ -9,8 +9,10 @@ explore a cell if they thing it does not contain a mine.
 if cell empty and no mines around it, auto explore them.
 
 
-    if cell has no mines surrounding it, mark as /
+if cell has no mines surrounding it, mark as /
         if a cell next to this has no mines surrounding, explore all cells
             surrounding it.
 
     
+
+
