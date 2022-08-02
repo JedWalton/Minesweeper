@@ -13,21 +13,23 @@ public class UserInputUtils {
         return scanner.nextInt();
     }
 
-    static String get_setDeleteMinesMarksXAndYCoordinates(){
+    static String getStringUserInput(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Set/delete mines marks (x and y coordinates):");
+        System.out.print("Set/unset mine marks or claim a cell as free:");
         return scanner.nextLine();
     }
 
-    static int getXfromStringCoordinates(String coords) {
-        String x = String.valueOf(coords.charAt(2));
+    static int getXfromStringUserInput(String userInput) {
+        String x = String.valueOf(userInput.charAt(2));
         return Integer.parseInt(x) - 1;
     }
 
-    static int getYfromStringCoordinates(String coords) {
-        String y = String.valueOf(coords.charAt(0));
+    static int getYfromStringUserInput(String userInput) {
+        String y = String.valueOf(userInput.charAt(0));
         return Integer.parseInt(y) - 1;
     }
 
-
+    public static String getActionFromStringUserInput(String userInput) {
+        return userInput.substring(4, 8);
+    }
 }
